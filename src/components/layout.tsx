@@ -23,6 +23,8 @@ const Wrapper = styled.div`
     max-width: 820px;
     margin: 0 auto;
     padding: 24px;
+
+    margin-bottom: 80px;
 `
 
 const Content = styled.div`
