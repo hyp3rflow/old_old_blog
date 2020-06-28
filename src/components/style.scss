@@ -40,6 +40,10 @@ h6 {
     padding: 0;
 }
 
+h2:nth-child(n + 2) {
+    padding-top: 30px;
+}
+
 a {
     cursor: pointer;
     transition: color 0.2s ease;
