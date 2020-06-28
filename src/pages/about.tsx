@@ -4,23 +4,30 @@ import SEO from '../components/seo'
 import Layout from '../components/layout'
 import TextLoop from 'react-text-loop'
 import styled from 'styled-components'
+import oc from 'open-color'
 
-const texts = ['뉴비 프론트엔드 개발자 🚀', 'UI/UX 디자이너 워너비 🧐', '알고리즘을 좋아하는 🧑🏻‍💻']
+const texts = ['프론트엔드 개발자 🚀', 'UI / UX 디자이너 🧐', '알고리즘을 좋아하는 🧑🏻‍💻']
 
 const Resume: React.FC = () => {
     return (
         <Layout>
             <SEO title="About" url="/about" />
-            <h1>
-                Say Hi to the Internet!
-                <br />
-                저는&nbsp;
-                <TextLoop interval={2000} children={texts} springConfig={{ stiffness: 100, damping: 10 }} />
-                <br />
-                hyperflow 입니다.
-            </h1>
+            <Introduction>
+                <h1>
+                    안녕하세요?
+                    <br />
+                    저는&nbsp;
+                    <TextLoop interval={2000} children={texts} springConfig={{ stiffness: 100, damping: 10 }} />
+                    <br />
+                    <Hi>
+                        <Background />
+                        <Hyperflow>hyperflow</Hyperflow>
+                    </Hi>
+                    &nbsp;입니다.
+                </h1>
+            </Introduction>
             <Linespace />
-            <ResumeTitle>최용욱</ResumeTitle>
+            <ResumeTitle primary>최용욱</ResumeTitle>
             <ResumeContext>
                 진주고등학교 졸업
                 <br />
@@ -35,7 +42,7 @@ const Resume: React.FC = () => {
                 <br />
                 요즘은 웹에 관심이 많아 리액트를 공부하면서 프론트엔드의 덕을 쌓고 있습니다.
                 <br />
-                동료와의 코딩을 좋아하기에 개발팀 ALT_TAB에서 함께 공부하고 있습니다.
+                컴퓨터학과 개발팀 ALT_TAB을 구성하여 동료들과 함께 공부하고 있습니다.
             </ResumeContext>
             <Linespace />
             <ResumeTitle>심플하고 아름다운 것을 좋아합니다.</ResumeTitle>
@@ -44,7 +51,7 @@ const Resume: React.FC = () => {
                 <br />
                 Photoshop, Illustrator, Figma, Final Cut과 같은 디자인 툴과 친합니다.
                 <br />
-                기술을 통한 완벽한 구현만큼 유저와의 상호작용도 중요하다고 생각합니다.
+                기술을 통한 완벽한 구현만큼 유저와의 편리한 상호작용도 중요하다고 생각합니다.
                 <br />
                 현재는 모든 사람에게 접근성 있는 키오스크 인터페이스에 대해서 고민하고 있습니다.
             </ResumeContext>
@@ -61,6 +68,32 @@ const Resume: React.FC = () => {
     )
 }
 
+const Hi = styled.div`
+    position: relative;
+    display: inline-block;
+`
+
+const Introduction = styled.div`
+    position: relative;
+    line-height: 1.5;
+`
+
+const Background = styled.div`
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: black;
+    outline: 3px solid black;
+`
+
+const Hyperflow = styled.div`
+    position: relative;
+    display: inline-block;
+    color: white;
+`
+
 const Linespace = styled.div`
     padding: 30px;
 `
@@ -69,7 +102,7 @@ const ResumeTitle = styled.h2`
     &:before {
         width: 10px;
         height: 20px;
-        background-color: skyblue;
+        background-color: ${props => (props.primary ? 'coral' : 'skyblue')};
         position: absolute;
         left: -20px;
         top: -5px;
@@ -84,6 +117,8 @@ const ResumeTitle = styled.h2`
 const ResumeContext = styled.p`
     font-size: 20px;
     padding-top: 10px;
+    word-break: keep-all;
+    line-height: 160%;
 `
 
 Resume.displayName = 'resume'
