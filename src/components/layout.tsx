@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import Header from './header'
 
 import './style.scss'
+require('prismjs/themes/prism-tomorrow.css')
 
 const Layout = ({ children }) => {
     return (

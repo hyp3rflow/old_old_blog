@@ -33,7 +33,7 @@ const Resume: React.FC = () => {
                 <br />
                 고려대학교 컴퓨터학과 학부과정 (2019 ~)
                 <br />
-                프로그래밍으로 세상을 바꾸는 일을 합니다.
+                프로그래밍으로 세상을 바꿀 수 있다고 믿습니다.
             </ResumeContext>
             <Linespace />
             <ResumeTitle>알고리즘과 웹을 좋아합니다.</ResumeTitle>
@@ -109,6 +109,10 @@ const ResumeTitle = styled.h2`
         transform: skew(0, 20deg);
         content: '';
         z-index: -1;
+    }
+
+    &:nth-child(n + 2) {
+        padding-top: 0px;
     }
 
     position: relative;

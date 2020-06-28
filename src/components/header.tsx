@@ -28,6 +28,8 @@ const Wrapper = styled.nav`
     @media screen and (max-width: 800px) {
         padding: 0 24px;
     }
+
+    border-bottom: 1px solid black;
 `
 
 const NavItem = styled(Link)`

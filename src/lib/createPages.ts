@@ -2,11 +2,6 @@ import { CreatePagesArgs } from 'gatsby'
 import path from 'path'
 import { Query } from '../graphql-types'
 
-const pages = [
-    { id: 1, content: 'hi' },
-    { id: 2, content: 'hello' },
-]
-
 export const createPages = async ({ actions, graphql }: CreatePagesArgs) => {
     const { createPage } = actions
 

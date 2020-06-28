@@ -2,6 +2,8 @@ import React from 'react'
 import Layout from '../components/layout'
 import { ITemplateProps } from '../interface'
 
+import '../../node_modules/katex/dist/katex.min.css'
+
 type IPostTemplateProps = ITemplateProps<{
     html: string
     title: string
