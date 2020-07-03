@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import Header from './header'
+import Footer from './footer'
 
 import './style.scss'
 require('prismjs/themes/prism-tomorrow.css')
@@ -12,6 +13,7 @@ const Layout = ({ children }) => {
         <Wrapper>
             <Header />
             <Content>{children}</Content>
+            <Footer />
         </Wrapper>
     )
 }
@@ -24,8 +26,6 @@ const Wrapper = styled.div`
     max-width: 820px;
     margin: 0 auto;
     padding: 24px;
-
-    margin-bottom: 80px;
 `
 
 const Content = styled.div`

@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 const Header = () => (
     <Wrapper>
-        <NavItem to="/" style={{ fontWeight: 'bold' }} activeClassName="nav-active">
+        <NavItem to="/" style={{ fontWeight: '800' }} activeClassName="nav-active">
             hyp3rflow
         </NavItem>
         <NavItem to="/about" activeClassName="nav-active">
@@ -42,6 +42,7 @@ const NavItem = styled(Link)`
     &.nav-active:hover {
         color: initial;
     }
+    font-weight: 500;
 `
 
 export default Header

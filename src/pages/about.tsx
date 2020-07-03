@@ -13,7 +13,7 @@ const Resume: React.FC = () => {
         <Layout>
             <SEO title="About" url="/about" />
             <Introduction>
-                <h1>
+                <IntroNested>
                     안녕하세요?
                     <br />
                     저는&nbsp;
@@ -24,7 +24,7 @@ const Resume: React.FC = () => {
                         <Hyperflow>hyperflow</Hyperflow>
                     </Hi>
                     &nbsp;입니다.
-                </h1>
+                </IntroNested>
             </Introduction>
             <Linespace />
             <ResumeTitle primary>최용욱</ResumeTitle>
@@ -78,20 +78,28 @@ const Introduction = styled.div`
     line-height: 1.5;
 `
 
+const IntroNested = styled.h1`
+    font-weight: 800;
+`
+
 const Background = styled.div`
     position: absolute;
-    left: 0;
+    left: -0.3em;
     right: 0;
     top: 0;
     bottom: 0;
+    width: 5.95em;
     background: black;
-    outline: 3px solid black;
+    transform: skew(-5deg, 0);
+    -webkit-backface-visibility: hidden;
 `
 
 const Hyperflow = styled.div`
     position: relative;
     display: inline-block;
     color: white;
+    -webkit-font-smoothing: antialiased;
+    font-style: italic;
 `
 
 const Linespace = styled.div`

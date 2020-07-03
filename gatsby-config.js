@@ -7,6 +7,7 @@ module.exports = {
     plugins: [
         `gatsby-plugin-typescript`,
         `gatsby-plugin-react-helmet`,
+        `gatsby-plugin-sharp`,
         {
             resolve: `gatsby-source-filesystem`,
             options: {
@@ -20,6 +21,15 @@ module.exports = {
             resolve: `gatsby-transformer-remark`,
             options: {
                 plugins: [
+                    {
+                        resolve: `gatsby-remark-images`,
+                        options: {
+                            // It's important to specify the maxWidth (in pixels) of
+                            // the content container as this plugin uses this as the
+                            // base for generating different widths of each image.
+                            maxWidth: 590,
+                        },
+                    },
                     {
                         resolve: `gatsby-remark-katex`,
                         options: {
@@ -105,6 +115,13 @@ module.exports = {
                 background_color: `#663399`,
                 theme_color: `#663399`,
                 display: `minimal-ui`,
+            },
+        },
+        {
+            resolve: `gatsby-plugin-google-analytics`,
+            options: {
+                // replace "UA-XXXXXXXXX-X" with your own Tracking ID
+                trackingId: 'UA-167243576-1',
             },
         },
         // this (optional) plugin enables Progressive Web App + Offline functionality
