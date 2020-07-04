@@ -31,7 +31,6 @@ const IndexPage = () => {
     return (
         <Layout>
             <SEO title="Home" />
-
             <PostList>
                 {data.allMarkdownRemark.edges.map(({ node }) => (
                     <PostItem key={node.id} post={node} />
