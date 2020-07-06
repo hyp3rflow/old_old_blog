@@ -16,7 +16,7 @@ const PostListTemplate: React.FC<IPostListTemplateProps> = React.memo(props => {
             <PostCategory />
             <PostList>
                 {nodes.map(node => (
-                    <PostItem key={node.id} post={node} />
+                    <PostItem key={node.id} post={node} truepath={node.frontmatter.path} />
                 ))}
             </PostList>
         </Layout>

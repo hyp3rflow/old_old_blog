@@ -1862,6 +1862,8 @@ export type QueryAllSitePageArgs = {
 export type QuerySiteArgs = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
+  port?: Maybe<DateQueryOperatorInput>;
+  host?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -1973,6 +1975,8 @@ export type Site = Node & {
   __typename?: 'Site';
   buildTime?: Maybe<Scalars['Date']>;
   siteMetadata?: Maybe<SiteSiteMetadata>;
+  port?: Maybe<Scalars['Date']>;
+  host?: Maybe<Scalars['String']>;
   polyfill?: Maybe<Scalars['Boolean']>;
   pathPrefix?: Maybe<Scalars['String']>;
   id: Scalars['ID'];
@@ -1983,6 +1987,14 @@ export type Site = Node & {
 
 
 export type SiteBuildTimeArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type SitePortArgs = {
   formatString?: Maybe<Scalars['String']>;
   fromNow?: Maybe<Scalars['Boolean']>;
   difference?: Maybe<Scalars['String']>;
@@ -2181,6 +2193,8 @@ export type SiteFieldsEnum =
   | 'siteMetadata___title'
   | 'siteMetadata___description'
   | 'siteMetadata___author'
+  | 'port'
+  | 'host'
   | 'polyfill'
   | 'pathPrefix'
   | 'id'
@@ -2273,6 +2287,8 @@ export type SiteFieldsEnum =
 export type SiteFilterInput = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
+  port?: Maybe<DateQueryOperatorInput>;
+  host?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -2539,6 +2555,7 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___plugins___version'
   | 'pluginCreator___pluginOptions___plugins___browserAPIs'
   | 'pluginCreator___pluginOptions___plugins___pluginFilepath'
+  | 'pluginCreator___pluginOptions___dest'
   | 'pluginCreator___pluginOptions___name'
   | 'pluginCreator___pluginOptions___path'
   | 'pluginCreator___pluginOptions___maxWidth'
@@ -2563,7 +2580,6 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___prompt___user'
   | 'pluginCreator___pluginOptions___prompt___host'
   | 'pluginCreator___pluginOptions___prompt___global'
-  | 'pluginCreator___pluginOptions___dest'
   | 'pluginCreator___pluginOptions___short_name'
   | 'pluginCreator___pluginOptions___start_url'
   | 'pluginCreator___pluginOptions___background_color'
@@ -2583,6 +2599,7 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___packageJson___description'
   | 'pluginCreator___packageJson___version'
   | 'pluginCreator___packageJson___main'
+  | 'pluginCreator___packageJson___author'
   | 'pluginCreator___packageJson___license'
   | 'pluginCreator___packageJson___dependencies'
   | 'pluginCreator___packageJson___dependencies___name'
@@ -2789,6 +2806,7 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___plugins___pluginOptions___languageExtensions'
   | 'pluginOptions___plugins___browserAPIs'
   | 'pluginOptions___plugins___pluginFilepath'
+  | 'pluginOptions___dest'
   | 'pluginOptions___name'
   | 'pluginOptions___path'
   | 'pluginOptions___maxWidth'
@@ -2813,7 +2831,6 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___prompt___user'
   | 'pluginOptions___prompt___host'
   | 'pluginOptions___prompt___global'
-  | 'pluginOptions___dest'
   | 'pluginOptions___short_name'
   | 'pluginOptions___start_url'
   | 'pluginOptions___background_color'
@@ -2833,6 +2850,7 @@ export type SitePluginFieldsEnum =
   | 'packageJson___description'
   | 'packageJson___version'
   | 'packageJson___main'
+  | 'packageJson___author'
   | 'packageJson___license'
   | 'packageJson___dependencies'
   | 'packageJson___dependencies___name'
@@ -2877,6 +2895,7 @@ export type SitePluginPackageJson = {
   description?: Maybe<Scalars['String']>;
   version?: Maybe<Scalars['String']>;
   main?: Maybe<Scalars['String']>;
+  author?: Maybe<Scalars['String']>;
   license?: Maybe<Scalars['String']>;
   dependencies?: Maybe<Array<Maybe<SitePluginPackageJsonDependencies>>>;
   devDependencies?: Maybe<Array<Maybe<SitePluginPackageJsonDevDependencies>>>;
@@ -2919,6 +2938,7 @@ export type SitePluginPackageJsonFilterInput = {
   description?: Maybe<StringQueryOperatorInput>;
   version?: Maybe<StringQueryOperatorInput>;
   main?: Maybe<StringQueryOperatorInput>;
+  author?: Maybe<StringQueryOperatorInput>;
   license?: Maybe<StringQueryOperatorInput>;
   dependencies?: Maybe<SitePluginPackageJsonDependenciesFilterListInput>;
   devDependencies?: Maybe<SitePluginPackageJsonDevDependenciesFilterListInput>;
@@ -2944,6 +2964,7 @@ export type SitePluginPackageJsonPeerDependenciesFilterListInput = {
 export type SitePluginPluginOptions = {
   __typename?: 'SitePluginPluginOptions';
   plugins?: Maybe<Array<Maybe<SitePluginPluginOptionsPlugins>>>;
+  dest?: Maybe<Scalars['String']>;
   name?: Maybe<Scalars['String']>;
   path?: Maybe<Scalars['String']>;
   maxWidth?: Maybe<Scalars['Int']>;
@@ -2964,7 +2985,6 @@ export type SitePluginPluginOptions = {
   noInlineHighlight?: Maybe<Scalars['Boolean']>;
   languageExtensions?: Maybe<Array<Maybe<SitePluginPluginOptionsLanguageExtensions>>>;
   prompt?: Maybe<SitePluginPluginOptionsPrompt>;
-  dest?: Maybe<Scalars['String']>;
   short_name?: Maybe<Scalars['String']>;
   start_url?: Maybe<Scalars['String']>;
   background_color?: Maybe<Scalars['String']>;
@@ -2980,6 +3000,7 @@ export type SitePluginPluginOptions = {
 
 export type SitePluginPluginOptionsFilterInput = {
   plugins?: Maybe<SitePluginPluginOptionsPluginsFilterListInput>;
+  dest?: Maybe<StringQueryOperatorInput>;
   name?: Maybe<StringQueryOperatorInput>;
   path?: Maybe<StringQueryOperatorInput>;
   maxWidth?: Maybe<IntQueryOperatorInput>;
@@ -3000,7 +3021,6 @@ export type SitePluginPluginOptionsFilterInput = {
   noInlineHighlight?: Maybe<BooleanQueryOperatorInput>;
   languageExtensions?: Maybe<SitePluginPluginOptionsLanguageExtensionsFilterListInput>;
   prompt?: Maybe<SitePluginPluginOptionsPromptFilterInput>;
-  dest?: Maybe<StringQueryOperatorInput>;
   short_name?: Maybe<StringQueryOperatorInput>;
   start_url?: Maybe<StringQueryOperatorInput>;
   background_color?: Maybe<StringQueryOperatorInput>;

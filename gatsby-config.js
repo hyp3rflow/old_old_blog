@@ -5,6 +5,12 @@ module.exports = {
         author: `@hyp3rflow`,
     },
     plugins: [
+        {
+            resolve: `gatsby-plugin-generate-typings`,
+            options: {
+                dest: `./src/graphql-types.d.ts`,
+            },
+        },
         `gatsby-plugin-typescript`,
         `gatsby-plugin-react-helmet`,
         `gatsby-plugin-sharp`,
@@ -98,12 +104,7 @@ module.exports = {
                 ],
             },
         },
-        {
-            resolve: `gatsby-plugin-generate-typings`,
-            options: {
-                dest: `./src/graphql-types.d.ts`,
-            },
-        },
+
         `gatsby-plugin-sass`,
         `gatsby-plugin-sharp`,
         {

@@ -19,7 +19,8 @@ interface Props {
 
 const PostItem: React.SFC<Props> = ({ post }) => {
     return (
-        <Wrapper key={post.id}>
+        <Wrapper>
+            <LinkWrap>{post.frontmatter.path}</LinkWrap>
             <PostWrapper to={post.frontmatter.path}>
                 <PostTop>
                     <PostTitle>{post.frontmatter.title}</PostTitle>
@@ -37,6 +38,10 @@ const PostItem: React.SFC<Props> = ({ post }) => {
 }
 
 export default PostItem
+
+const LinkWrap = styled.div`
+    color: hsla(0, 0%, 50%, 1);
+`
 
 const Wrapper = styled.li`
     padding: 24px;

@@ -53,7 +53,7 @@ const List = styled.nav`
     li {
         list-style-type: none;
         display: inline-block;
-        padding-right: 3rem;
+        padding-right: 12px;
     }
     display: block;
     padding-top: 10px;
