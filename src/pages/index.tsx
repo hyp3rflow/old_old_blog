@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import PostItem, { Post, PostList } from '../components/Post'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
+import PostCategory from '../components/PostCategory'
 
 const LatestPostListQuery = graphql`
     query {
@@ -31,6 +32,7 @@ const IndexPage = () => {
     return (
         <Layout>
             <SEO title="Home" />
+            <PostCategory />
             <PostList>
                 {data.allMarkdownRemark.edges.map(({ node }) => (
                     <PostItem key={node.id} post={node} />

@@ -1,12 +1,35 @@
 import { CreatePagesArgs } from 'gatsby'
 import path from 'path'
-import { Query } from '../graphql-types'
+import { Query, MarkdownRemarkConnection } from '../graphql-types'
+import { IPostListTemplateContext } from '../interface'
+import startCase from 'lodash.startcase'
 
 export const createPages = async ({ actions, graphql }: CreatePagesArgs) => {
     const { createPage } = actions
 
-    const { data, errors } = await graphql<Query>(`
+    type Query2 = {
+        allMarkdownRemark: MarkdownRemarkConnection
+        allPostByCategory: MarkdownRemarkConnection
+    }
+
+    const { data, errors } = await graphql<Query2>(`
         {
+            allPostByCategory: allMarkdownRemark(sort: { order: DESC, fields: frontmatter___last_modified_at }) {
+                group(field: frontmatter___categories) {
+                    fieldValue
+                    nodes {
+                        id
+                        frontmatter {
+                            title
+                            categories
+                            path
+                            last_modified_at(formatString: "YYYY-MM-DD")
+                        }
+                        excerpt(truncate: true, pruneLength: 200)
+                    }
+                }
+            }
+
             allMarkdownRemark {
                 edges {
                     node {
@@ -34,6 +57,22 @@ export const createPages = async ({ actions, graphql }: CreatePagesArgs) => {
                 title: node.frontmatter.title,
             },
             component: path.resolve(__dirname, '../templates/PostTemplate.tsx'),
+        })
+    })
+
+    data.allPostByCategory.group.forEach(({ fieldValue, nodes }) => {
+        const pagePath = `/category/${fieldValue}`
+        const title = startCase(fieldValue)
+
+        createPage<IPostListTemplateContext>({
+            path: pagePath,
+            context: {
+                title,
+                pagePath,
+                categories: fieldValue,
+                nodes,
+            },
+            component: path.resolve(__dirname, '../templates/PostListTemplate.tsx'),
         })
     })
 }

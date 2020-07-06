@@ -2335,11 +2335,49 @@ export type SitePageContext = {
   __typename?: 'SitePageContext';
   html?: Maybe<Scalars['String']>;
   title?: Maybe<Scalars['String']>;
+  pagePath?: Maybe<Scalars['String']>;
+  categories?: Maybe<Scalars['String']>;
+  nodes?: Maybe<Array<Maybe<SitePageContextNodes>>>;
 };
 
 export type SitePageContextFilterInput = {
   html?: Maybe<StringQueryOperatorInput>;
   title?: Maybe<StringQueryOperatorInput>;
+  pagePath?: Maybe<StringQueryOperatorInput>;
+  categories?: Maybe<StringQueryOperatorInput>;
+  nodes?: Maybe<SitePageContextNodesFilterListInput>;
+};
+
+export type SitePageContextNodes = {
+  __typename?: 'SitePageContextNodes';
+  id?: Maybe<Scalars['String']>;
+  frontmatter?: Maybe<SitePageContextNodesFrontmatter>;
+  excerpt?: Maybe<Scalars['String']>;
+};
+
+export type SitePageContextNodesFilterInput = {
+  id?: Maybe<StringQueryOperatorInput>;
+  frontmatter?: Maybe<SitePageContextNodesFrontmatterFilterInput>;
+  excerpt?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePageContextNodesFilterListInput = {
+  elemMatch?: Maybe<SitePageContextNodesFilterInput>;
+};
+
+export type SitePageContextNodesFrontmatter = {
+  __typename?: 'SitePageContextNodesFrontmatter';
+  title?: Maybe<Scalars['String']>;
+  categories?: Maybe<Array<Maybe<Scalars['String']>>>;
+  path?: Maybe<Scalars['String']>;
+  last_modified_at?: Maybe<Scalars['Date']>;
+};
+
+export type SitePageContextNodesFrontmatterFilterInput = {
+  title?: Maybe<StringQueryOperatorInput>;
+  categories?: Maybe<StringQueryOperatorInput>;
+  path?: Maybe<StringQueryOperatorInput>;
+  last_modified_at?: Maybe<DateQueryOperatorInput>;
 };
 
 export type SitePageEdge = {
@@ -2444,6 +2482,15 @@ export type SitePageFieldsEnum =
   | 'isCreatedByStatefulCreatePages'
   | 'context___html'
   | 'context___title'
+  | 'context___pagePath'
+  | 'context___categories'
+  | 'context___nodes'
+  | 'context___nodes___id'
+  | 'context___nodes___frontmatter___title'
+  | 'context___nodes___frontmatter___categories'
+  | 'context___nodes___frontmatter___path'
+  | 'context___nodes___frontmatter___last_modified_at'
+  | 'context___nodes___excerpt'
   | 'pluginCreator___id'
   | 'pluginCreator___parent___id'
   | 'pluginCreator___parent___parent___id'
