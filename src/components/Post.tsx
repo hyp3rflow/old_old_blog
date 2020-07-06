@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
+import oc from 'open-color'
 
 export interface Post {
     id: string
@@ -17,9 +18,31 @@ interface Props {
     post: Post
 }
 
-const PostItem: React.SFC<Props> = ({ post }) => {
+const PostItem: React.FC<Props> = ({ post }) => {
+    const [color, setColor] = useState('white')
+
+    useEffect(() => {
+        switch (post.frontmatter.categories[0]) {
+            case 'BOJ':
+                setColor('skyblue')
+                break
+
+            case 'algorithm':
+                setColor('mediumspringgreen')
+                break
+
+            case 'ALPS':
+                setColor('coral')
+                break
+
+            default:
+                setColor('brown')
+                break
+        }
+    }, [])
+
     return (
-        <Wrapper>
+        <Wrapper color={color}>
             <LinkWrap>{post.frontmatter.path}</LinkWrap>
             <PostWrapper to={post.frontmatter.path}>
                 <PostTop>
@@ -44,10 +67,30 @@ const LinkWrap = styled.div`
 `
 
 const Wrapper = styled.li`
-    padding: 24px;
+    &:before {
+        width: 10px;
+        height: 20px;
+        background-color: ${props => props.color};
+        position: absolute;
+        left: 0px;
+        top: 17px;
+        transform: skew(0, 20deg);
+        content: '';
+        z-index: -1;
+    }
+    &:after {
+        left: 2px;
+        top: 2px;
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        background-color: black;
+        z-index: -1;
+    }
+    padding: 20px 24px;
     list-style-type: none;
     transition: background-color 0.25s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-    border-radius: 8px;
+    border-radius: 12px;
     &:hover {
         background-color: rgba(0, 0, 0, 0.02);
     }
@@ -57,6 +100,8 @@ const Wrapper = styled.li`
     @media screen and (max-width: 800px) {
         padding: 12px;
     }
+
+    position: relative;
 `
 
 const PostWrapper = styled(Link)`
