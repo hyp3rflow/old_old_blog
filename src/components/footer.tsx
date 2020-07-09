@@ -13,7 +13,6 @@ const Footer = () => {
 const Wrapper = styled.footer`
     margin-top: 20px;
     height: 50px;
-    border-top: 1px solid black;
     display: flex;
     align-items: center;
     justify-content: space-between;

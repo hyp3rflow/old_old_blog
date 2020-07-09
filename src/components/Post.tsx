@@ -79,13 +79,14 @@ const Wrapper = styled.li`
         z-index: -1;
     }
     &:after {
-        left: 2px;
-        top: 2px;
+        left: 0px;
+        top: 100%;
         position: absolute;
-        width: 100px;
-        height: 100px;
+        width: 100%;
+        height: 1px;
         background-color: black;
-        z-index: -1;
+        content: '';
+        z-index: 3;
     }
     padding: 20px 24px;
     list-style-type: none;

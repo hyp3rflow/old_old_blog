@@ -41,6 +41,11 @@ h6 {
     color: $text-color;
     margin: 0;
     padding: 0;
+    line-break: normal;
+    word-wrap: break-word;
+}
+
+h1 {
 }
 
 h2 {
@@ -66,8 +71,8 @@ ul {
     padding: 10px 0 0 0;
 }
 
-pre {
-    margin: 0;
+ol > li {
+    padding: 0 0 4px 0;
 }
 
 table {
@@ -76,4 +81,15 @@ table {
 
 img.gatsby-resp-image-image {
     padding: 1rem 0rem;
+}
+
+div.gatsby-highlight {
+    padding: 1px 0 0 0;
+}
+
+blockquote {
+    border-left: 1px black solid;
+    padding: 0;
+    padding-left: 10px;
+    margin-inline-start: 10px;
 }

@@ -1,7 +1,7 @@
 module.exports = {
     siteMetadata: {
         title: `hyp3rflow`,
-        description: `hyperflow's blog`,
+        description: `algorithm & learning`,
         author: `@hyp3rflow`,
     },
     plugins: [
