@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
-import oc from 'open-color'
 
 export interface Post {
     id: string
@@ -18,10 +17,41 @@ interface Props {
     post: Post
 }
 
+const RankDivision = ['Unknown', 'Bronze', 'Silver', 'Gold', 'Platinum', 'Diamond', 'Ruby']
+
+const Division = level => {
+    if (level === 0) return RankDivision[0]
+    else {
+        level -= 1
+        return RankDivision[Math.floor(level / 5) + 1] + ' ' + (5 - (level % 5)).toString()
+    }
+}
+
 const PostItem: React.FC<Props> = ({ post }) => {
     const [color, setColor] = useState('white')
 
+    const [isBOJ, setBOJ] = useState(false)
+    const [BOJRank, setRank] = useState(0)
+
     useEffect(() => {
+        if (post.frontmatter.title.includes('백준')) {
+            const problem = parseInt(post.frontmatter.path.split('/')[2], 10)
+
+            fetch(`https://api.solved.ac/v2/problems/lookup.json?ids=${problem}`, {
+                headers: {
+                    accept: '*/*',
+                },
+
+                body: null,
+                method: 'GET',
+            })
+                .then(response => response.json())
+                .then(response => {
+                    setRank(response.result.problems[0].level)
+                    setBOJ(true)
+                })
+        }
+
         switch (post.frontmatter.categories[0]) {
             case 'BOJ':
                 setColor('skyblue')
@@ -41,12 +71,29 @@ const PostItem: React.FC<Props> = ({ post }) => {
         }
     }, [])
 
+    const DisplayRank = props => {
+        console.log(props)
+        const rank = props.level
+
+        if (!isBOJ) return <></>
+
+        const ImgSrc = `https://static.solved.ac/tier_small/${BOJRank}.svg`
+
+        return (
+            <>
+                <img src={ImgSrc}></img>
+                <ProblemRank>{Division(rank)}</ProblemRank>
+            </>
+        )
+    }
+
     return (
         <Wrapper color={color}>
             <LinkWrap>{post.frontmatter.path}</LinkWrap>
             <PostWrapper to={post.frontmatter.path}>
                 <PostTop>
                     <PostTitle>{post.frontmatter.title}</PostTitle>
+                    <DisplayRank level={BOJRank} />
                     <PublishedDate>{post.frontmatter.last_modified_at}</PublishedDate>
                 </PostTop>
                 <Description>{post.excerpt}</Description>
@@ -61,6 +108,11 @@ const PostItem: React.FC<Props> = ({ post }) => {
 }
 
 export default PostItem
+
+const ProblemRank = styled.div`
+    color: hsla(0, 0%, 50%, 1);
+    padding-right: 8px;
+`
 
 const LinkWrap = styled.div`
     color: hsla(0, 0%, 50%, 1);
@@ -114,6 +166,15 @@ const PostTop = styled.div`
     align-items: center;
     margin-bottom: 12px;
     flex-wrap: wrap;
+
+    img {
+        position: relative;
+        top: 2px;
+        left: -1px;
+        width: 30px;
+        height: 30px;
+        padding: 1px 5px 0px 0px;
+    }
 `
 
 const PostTitle = styled.h2`

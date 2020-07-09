@@ -18,6 +18,7 @@ $border-color-dark: $oc-gray-8;
 * {
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
+    word-break: keep-all;
 }
 
 body {
@@ -53,7 +54,7 @@ h2 {
 }
 
 h2:nth-child(n + 2) {
-    padding-top: 30px;
+    padding-top: 10px;
 }
 
 a {
@@ -92,9 +93,17 @@ blockquote {
     padding: 0;
     padding-left: 10px;
     margin-inline-start: 10px;
+
+    p {
+        padding-bottom: 0px;
+    }
 }
 
 figcaption {
     margin-bottom: 10px;
     text-align: center;
+}
+
+p {
+    padding-bottom: 10px;
 }
