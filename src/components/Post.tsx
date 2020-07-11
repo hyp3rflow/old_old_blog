@@ -173,7 +173,8 @@ const PostTop = styled.div`
         left: -1px;
         width: 30px;
         height: 30px;
-        padding: 1px 5px 0px 0px;
+        padding: 1px 6px 0px 0px;
+        margin-right: 1px;
     }
 `
 
