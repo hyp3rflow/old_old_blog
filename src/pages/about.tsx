@@ -38,22 +38,31 @@ const Resume: React.FC = () => {
             <Linespace />
             <ResumeTitle>알고리즘과 웹을 좋아합니다.</ResumeTitle>
             <ResumeContext>
-                고려대학교 알고리즘 학회 ALPS에서 부회장을 맡고 있습니다.
+                고려대학교 알고리즘 학회 ALPS에서 회장을 맡고 있습니다. (2020.08~)
                 <br />
-                요즘은 웹에 관심이 많아 리액트를 공부하면서 프론트엔드의 덕을 쌓고 있습니다.
+                요즘은 웹에 관심이 많아 리액트를 공부하면서 프론트엔드의 길을 가고 있습니다.
                 <br />
-                컴퓨터학과 개발팀 ALT_TAB을 구성하여 동료들과 함께 공부하고 있습니다.
+                컴퓨터학과 개발팀 ALT_TAB을 구성하여 활동중이며,
+                <br />
+                <a href="https://github.com/ku-kosmos/anam_food" target="_blank">
+                    안암 뭐 먹지?
+                </a>
+                <br />
+                나만의 레시피
+                <br />
+                <a href="https://github.com/KU-KUICS/KUICS_frontend" target="_blank">
+                    정보보호학회 KUICS 홈페이지 개편
+                </a>
+                <br />와 같은 여러 프로젝트를 진행하고 있습니다.
             </ResumeContext>
             <Linespace />
             <ResumeTitle>심플하고 아름다운 것을 좋아합니다.</ResumeTitle>
             <ResumeContext>
                 어려서부터 컴퓨터로 시각디자인 작업을 하는 것을 좋아했기에
                 <br />
-                Photoshop, Illustrator, Figma, Final Cut과 같은 디자인 툴과 친합니다.
+                Photoshop, Illustrator, Figma과 같은 디자인 툴과 친합니다.
                 <br />
-                기술을 통한 완벽한 구현만큼 유저와의 편리한 상호작용도 중요하다고 생각합니다.
-                <br />
-                현재는 모든 사람에게 접근성 있는 키오스크 인터페이스에 대해서 고민하고 있습니다.
+                기술을 통한 구현만큼 유저와의 편리한 상호작용도 중요하다고 생각합니다.
             </ResumeContext>
             <Linespace />
             <ResumeTitle>제 사서함은 이곳입니다.</ResumeTitle>
