@@ -44,16 +44,60 @@ const Resume: React.FC = () => {
                 <br />
                 컴퓨터학과 개발팀 ALT_TAB을 구성하여 활동중이며,
                 <br />
-                <a href="https://github.com/ku-kosmos/anam_food" target="_blank">
-                    안암 뭐 먹지?
-                </a>
+                <ul style={{ paddingBottom: '10px' }}>
+                    <li>
+                        <a href="https://github.com/ku-kosmos/anam_food" target="_blank">
+                            안암 뭐 먹지? (WebApp w/ React.js)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/ku-kosmos/my_recipe" target="_blank">
+                            나만의 레시피 (Cross-platform App w/ React-native)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/KU-KUICS/KUICS_frontend" target="_blank">
+                            정보보호학회 KUICS 홈페이지 개편 (w/ React.js)
+                        </a>
+                    </li>
+                </ul>
+                와 같은 여러 프로젝트를 진행하고 있습니다.
+            </ResumeContext>
+            <Linespace />
+            <ResumeTitle>이것저것 만드는 것도 좋아합니다.</ResumeTitle>
+            <ResumeContext>
+                C++과 강화학습에 관심이 있어 관련된 프로젝트를 진행하고 있습니다.
                 <br />
-                나만의 레시피
+                오픈소스 프로젝트를 진행하면서 프로젝트 문화를 익히고,
                 <br />
-                <a href="https://github.com/KU-KUICS/KUICS_frontend" target="_blank">
-                    정보보호학회 KUICS 홈페이지 개편
-                </a>
-                <br />와 같은 여러 프로젝트를 진행하고 있습니다.
+                오픈소스 문화에 동참하여 많은 사람과 함께 변화를 이끄는 사람이 되고 싶습니다.
+                <p style={{ paddingTop: '10px' }}>
+                    주위의 고마우신 여러 팀원분들과 함께,
+                    <br />
+                    <ul style={{ paddingBottom: '10px' }}>
+                        <li>
+                            <a href="https://github.com/hyp3rflow/hyperGuess" target="_blank">
+                                hyperGuess - 숫자 맞추기 게임 강화학습
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/utilForever/HellSolver" target="_blank">
+                                HellSolver - Helltaker 게임 강화학습
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/utilForever/polybridgepp" target="_blank">
+                                Polybridgepp - Poly Bridge 게임 강화학습
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/utilForever/Polisher" target="_blank">
+                                Polisher - Cross-Platform 게임 엔진 (w/ Rust)
+                            </a>
+                        </li>
+                    </ul>
+                    와 같은 여러 프로젝트를 진행하고자 공부하고 있습니다.
+                </p>
             </ResumeContext>
             <Linespace />
             <ResumeTitle>심플하고 아름다운 것을 좋아합니다.</ResumeTitle>
@@ -112,7 +156,7 @@ const Hyperflow = styled.div`
 `
 
 const Linespace = styled.div`
-    padding: 30px;
+    padding: 20px;
 `
 
 const ResumeTitle = styled.h2`

@@ -72,7 +72,7 @@ const PostItem: React.FC<Props> = ({ post }) => {
     }, [])
 
     const DisplayRank = props => {
-        console.log(props)
+        // console.log(props)
         const rank = props.level
 
         if (!isBOJ) return <></>
