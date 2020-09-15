@@ -164,7 +164,6 @@ const PostWrapper = styled(Link)`
 const PostTop = styled.div`
     display: flex;
     align-items: center;
-    margin-bottom: 12px;
     flex-wrap: wrap;
 
     img {
@@ -182,6 +181,7 @@ const PostTitle = styled.h2`
     margin-right: 8px;
     word-break: keep-all;
     overflow-wrap: break-word;
+    padding-bottom: 5px;
 `
 
 const PublishedDate = styled.small``

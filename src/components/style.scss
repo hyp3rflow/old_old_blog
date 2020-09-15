@@ -23,7 +23,11 @@ $border-color-dark: $oc-gray-8;
 
 body {
     margin: 0;
-    font-family: $font-family;
+    font-family: $font-family !important;
+}
+
+.katex {
+    font: normal 1em $font-family !important;
 }
 
 body,
@@ -46,11 +50,10 @@ h6 {
     word-wrap: break-word;
 }
 
-h1 {
-}
-
 h2 {
     font-weight: 600;
+    padding-top: 5px;
+    padding-bottom: 10px;
 }
 
 h2:nth-child(n + 2) {
@@ -69,11 +72,19 @@ a {
 ol,
 ul {
     margin: 0;
-    padding: 10px 0 0 0;
+    padding: 0;
+}
+
+li > ul {
+    padding-left: 1rem;
 }
 
 ol > li {
     padding: 0 0 4px 0;
+}
+
+ul > li {
+    padding-bottom: 4px;
 }
 
 table {
@@ -102,8 +113,4 @@ blockquote {
 figcaption {
     margin-bottom: 10px;
     text-align: center;
-}
-
-p {
-    padding-bottom: 10px;
 }
