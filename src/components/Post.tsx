@@ -65,6 +65,10 @@ const PostItem: React.FC<Props> = ({ post }) => {
                 setColor('coral')
                 break
 
+            case 'ML':
+                setColor('palevioletred')
+                break
+
             default:
                 setColor('brown')
                 break
