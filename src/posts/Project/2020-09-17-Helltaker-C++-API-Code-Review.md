@@ -173,8 +173,8 @@ using my_vector = std::vector<T>;
 
 ## 4. [refactor: Replace 'size_t' with 'std::size_t'](https://github.com/utilForever/HellSolver/commit/5f78568867d907e05709751ab912ee18158adf20)
 
--   size_t와 std::size_t의 큰 차이점은 없어보이나 C++ 명세에 따르면 std namespace 안에 정의되어 있으므로 std::size_t로 쓰는게 맞는거 같다.
--   std::size_t와 size_t를 혼동해서 쓰다보면 코드 보기가 엉망일 수 있으므로 둘 중 하나를 골라서 쓰도록 하자.
+-   size\_t와 std::size\_t의 큰 차이점은 없어보이나 C++ 명세에 따르면 std namespace 안에 정의되어 있으므로 std::size\_t로 쓰는게 맞는거 같다.
+-   std::size\_t와 size\_t를 혼동해서 쓰다보면 코드 보기가 엉망일 수 있으므로 둘 중 하나를 골라서 쓰도록 하자.
 
 ## 5. [refactor: Add 'const' keyword and rename local variables](https://github.com/utilForever/HellSolver/commit/25ef7700b915604d23c32e7e0c290bb3e588a53b)
 
@@ -183,7 +183,7 @@ using my_vector = std::vector<T>;
 ## 6. [refactor: Change the name of method 'SetLurker()' to 'FlipLurkerFlag()'](https://github.com/utilForever/HellSolver/commit/f8fa97245cb23a831b4a17763d43394184b811b2)
 
 -   SetLurker() → FlipLurkerFlag()
--   m_lurker → m_lurkerFlag
+-   m\_lurker → m\_lurkerFlag
 -   변수명을 짓는것도 조금 부족했던 것 같고, 내부적인 로직도 멤버만 불러와도 되는 것을 함수로 불러와서 오버헤드가 늘어나는 코드였던 것 같다.
 
 ## 7. [refactor: Change the name of method to 'ProcessUndeadObjects()'](https://github.com/utilForever/HellSolver/commit/c0ed51dd097e0d743cc221215a766f32a210eb0a)
