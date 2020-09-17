@@ -171,7 +171,7 @@ using my_vector = std::vector<T>;
 -   using은 template을 지원한다.
 -   그 이외에 별 차이점은 없다고 한다.
 
-## 4. [refactor: Replace 'size_t' with 'std::size_t'](https://github.com/utilForever/HellSolver/commit/5f78568867d907e05709751ab912ee18158adf20)
+## 4. [refactor: Replace 'size\_t' with 'std::size\_t'](https://github.com/utilForever/HellSolver/commit/5f78568867d907e05709751ab912ee18158adf20)
 
 -   size\_t와 std::size\_t의 큰 차이점은 없어보이나 C++ 명세에 따르면 std namespace 안에 정의되어 있으므로 std::size\_t로 쓰는게 맞는거 같다.
 -   std::size\_t와 size\_t를 혼동해서 쓰다보면 코드 보기가 엉망일 수 있으므로 둘 중 하나를 골라서 쓰도록 하자.
