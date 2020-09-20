@@ -186,6 +186,7 @@ const PostTitle = styled.h2`
     word-break: keep-all;
     overflow-wrap: break-word;
     padding-bottom: 5px;
+    padding-top: 0px;
 `
 
 const PublishedDate = styled.small``
