@@ -39,6 +39,7 @@ const PostCategory: React.FC = memo(() => {
 
     return (
         <>
+            <p>Categories</p>
             <List>
                 <ul>
                     <PostCategoryItem name="All" count={totalCount} link="/" />
