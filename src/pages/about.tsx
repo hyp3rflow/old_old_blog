@@ -35,9 +35,7 @@ const Resume: React.FC = () => {
                 <br />
                 프로그래밍으로 세상을 바꿀 수 있다고 믿습니다.
                 <br/>
-                Per aspera, ad astra.
-                <br/>
-                Through difficulties to the stars.
+                per aspera, ad astra.
             </ResumeContext>
             <Linespace />
             <ResumeTitle>알고리즘과 웹을 좋아합니다.</ResumeTitle>
