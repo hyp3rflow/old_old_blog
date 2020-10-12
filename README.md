@@ -1,4 +1,5 @@
 # hyperflow.dev
+[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/github/hyp3rflow/blog?label=Code%20Quality%20%7C%20TS%20%26%20JS&style=for-the-badge)](https://lgtm.com/projects/g/hyp3rflow/blog/context:javascript)
 
 [hyperflow.dev](https://hyperflow.dev)
 
