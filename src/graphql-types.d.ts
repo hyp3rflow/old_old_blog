@@ -2565,6 +2565,7 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___prompt___user'
   | 'pluginCreator___pluginOptions___prompt___host'
   | 'pluginCreator___pluginOptions___prompt___global'
+  | 'pluginCreator___pluginOptions___implementation___info'
   | 'pluginCreator___pluginOptions___short_name'
   | 'pluginCreator___pluginOptions___start_url'
   | 'pluginCreator___pluginOptions___background_color'
@@ -2818,6 +2819,7 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___prompt___user'
   | 'pluginOptions___prompt___host'
   | 'pluginOptions___prompt___global'
+  | 'pluginOptions___implementation___info'
   | 'pluginOptions___short_name'
   | 'pluginOptions___start_url'
   | 'pluginOptions___background_color'
@@ -2973,6 +2975,7 @@ export type SitePluginPluginOptions = {
   noInlineHighlight?: Maybe<Scalars['Boolean']>;
   languageExtensions?: Maybe<Array<Maybe<SitePluginPluginOptionsLanguageExtensions>>>;
   prompt?: Maybe<SitePluginPluginOptionsPrompt>;
+  implementation?: Maybe<SitePluginPluginOptionsImplementation>;
   short_name?: Maybe<Scalars['String']>;
   start_url?: Maybe<Scalars['String']>;
   background_color?: Maybe<Scalars['String']>;
@@ -3010,6 +3013,7 @@ export type SitePluginPluginOptionsFilterInput = {
   noInlineHighlight?: Maybe<BooleanQueryOperatorInput>;
   languageExtensions?: Maybe<SitePluginPluginOptionsLanguageExtensionsFilterListInput>;
   prompt?: Maybe<SitePluginPluginOptionsPromptFilterInput>;
+  implementation?: Maybe<SitePluginPluginOptionsImplementationFilterInput>;
   short_name?: Maybe<StringQueryOperatorInput>;
   start_url?: Maybe<StringQueryOperatorInput>;
   background_color?: Maybe<StringQueryOperatorInput>;
@@ -3021,6 +3025,15 @@ export type SitePluginPluginOptionsFilterInput = {
   theme_color_in_head?: Maybe<BooleanQueryOperatorInput>;
   trackingId?: Maybe<StringQueryOperatorInput>;
   pathCheck?: Maybe<BooleanQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsImplementation = {
+  __typename?: 'SitePluginPluginOptionsImplementation';
+  info?: Maybe<Scalars['String']>;
+};
+
+export type SitePluginPluginOptionsImplementationFilterInput = {
+  info?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePluginPluginOptionsLanguageExtensions = {
