@@ -13,7 +13,7 @@ path: '/Frontend/Rollup-Typescript-Storybook-Design-System'
 >  본 포스트는 다음 포스트들을 참고하여 작성되었습니다. 자세하거나 추가적인 지식을 얻고자 하는 분은 다음 포스트를 함께 보시는 것을 추천드립니다.
 >
 > - [Ideveloper님의 Rollup.js + Typescript + Storybook으로 구축하는 디자인 시스템](https://ideveloper2.dev/blog/2020-05-17--rollup-ts-%EB%A1%9C-%EB%94%94%EC%9E%90%EC%9D%B8%EC%8B%9C%EC%8A%A4%ED%85%9C-%EB%A7%8C%EB%93%A4%EA%B8%B0/)
-> - [velog님의 Rollup을 사용하여 디자인 시스템 번들 후, npm 라이브러리로 배포하기](https://velog.io/@velopert/bundle-with-rollup-and-publish-to-npm)
+> - [velopert님의 Rollup을 사용하여 디자인 시스템 번들 후, npm 라이브러리로 배포하기](https://velog.io/@velopert/bundle-with-rollup-and-publish-to-npm)
 > - [iamchanii님의 @canifish/ui 패키지 코드](https://github.com/hyp3rflow/canifish/tree/develop/packages/ui)
 
 
