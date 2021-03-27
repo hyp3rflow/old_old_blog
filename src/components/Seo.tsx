@@ -5,7 +5,6 @@ import { useStaticQuery, graphql } from 'gatsby';
 interface SeoProps {
   description?: string;
   lang?: string;
-  meta?: HTMLMetaElement[];
   title: string;
 }
 
@@ -66,7 +65,7 @@ const Seo: React.FC<SeoProps> = ({ description, lang, meta, title }) => {
           name: `twitter:description`,
           content: metaDescription,
         },
-      ].concat(meta)}>
+      ]}>
       <script
         src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"
         async
