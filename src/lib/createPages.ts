@@ -1,6 +1,6 @@
 import { CreatePagesArgs } from 'gatsby';
 import path from 'path';
-import { Query, MarkdownRemarkConnection } from '../graphql-types';
+import {  MarkdownRemarkConnection } from '../graphql-types';
 import { IPostListTemplateContext } from '../interface';
 import startCase from 'lodash.startcase';
 
@@ -51,30 +51,34 @@ export const createPages = async ({ actions, graphql }: CreatePagesArgs) => {
     throw errors;
   }
 
-  data.allMarkdownRemark.edges.forEach(({ node }) => {
-    createPage({
-      path: node.frontmatter.path,
-      context: {
-        html: node.html,
-        title: node.frontmatter.title,
-      },
-      component: path.resolve(__dirname, '../templates/PostTemplate.tsx'),
+  const processGraphqlData = (data: Query2) => {
+    data.allMarkdownRemark.edges.forEach(({ node }) => {
+      createPage({
+        path: node.frontmatter.path,
+        context: {
+          html: node.html,
+          title: node.frontmatter.title,
+        },
+        component: path.resolve(__dirname, '../templates/PostTemplate.tsx'),
+      });
     });
-  });
-
-  data.allPostByCategory.group.forEach(({ fieldValue, nodes }) => {
-    const pagePath = `/category/${fieldValue}`;
-    const title = startCase(fieldValue);
-
-    createPage<IPostListTemplateContext>({
-      path: pagePath,
-      context: {
-        title,
-        pagePath,
-        categories: fieldValue,
-        nodes,
-      },
-      component: path.resolve(__dirname, '../templates/PostListTemplate.tsx'),
+  
+    data.allPostByCategory.group.forEach(({ fieldValue, nodes }) => {
+      const pagePath = `/category/${fieldValue}`;
+      const title = startCase(fieldValue);
+  
+      createPage<IPostListTemplateContext>({
+        path: pagePath,
+        context: {
+          title,
+          pagePath,
+          categories: fieldValue,
+          nodes,
+        },
+        component: path.resolve(__dirname, '../templates/PostListTemplate.tsx'),
+      });
     });
-  });
+  }
+
+  processGraphqlData(data);
 };

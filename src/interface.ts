@@ -1,7 +1,7 @@
 import { MarkdownRemarkFrontmatter, MarkdownRemark } from './graphql-types.d';
-import { ReplaceComponentRendererArgs } from 'gatsby';
+import { WrapPageElementBrowserArgs } from 'gatsby';
 
-export type ITemplateProps<T> = ReplaceComponentRendererArgs['props'] & {
+export type ITemplateProps<T> = WrapPageElementBrowserArgs['props'] & {
   pageContext: {
     isCreatedByStatefulCreatePages: boolean;
   } & T;
