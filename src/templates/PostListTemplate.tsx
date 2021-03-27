@@ -1,32 +1,28 @@
 import React from 'react';
+
+import PostCategory from '@src/components/PostCategory';
+import PostItem, { Post, PostList } from '@src/components/Post';
+import Seo from '@src/components/Seo';
+import Layout from '@src/components/Layout';
+
 import { IPostListTemplateContext, ITemplateProps } from '../interface';
-import PostCategory from 'src/components/PostCategory';
-import PostItem, { Post, PostList } from 'src/components/Post';
-import Seo from 'src/components/Seo';
-import Layout from 'src/components/Layout';
 
 type IPostListTemplateProps = ITemplateProps<IPostListTemplateContext>;
 
 const PostListTemplate: React.FC<IPostListTemplateProps> = React.memo(props => {
-  const { title, pagePath, nodes } = props.pageContext;
+  const { title, nodes } = props.pageContext;
 
   return (
     <Layout>
-      <Seo title={title} url={pagePath} />
+      <Seo title={title} />
       <PostCategory />
       <PostList>
         {nodes.map(node => (
-          <PostItem
-            key={node.id}
-            post={node}
-            truepath={node.frontmatter.path}
-          />
+          <PostItem key={node.id} post={node as Post} />
         ))}
       </PostList>
     </Layout>
   );
 });
-
-PostListTemplate.displayName = 'PostListTemplate';
 
 export default PostListTemplate;

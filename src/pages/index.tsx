@@ -1,11 +1,12 @@
 import React from 'react';
-import { graphql, useStaticQuery, Link } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
+
+import PostItem, { Post, PostList } from '@src/components/Post';
+import Layout from '@src/components/Layout';
+import Seo from '@src/components/Seo';
+import PostCategory from '@src/components/PostCategory';
+
 import { Query } from '../graphql-types';
-import styled from 'styled-components';
-import PostItem, { Post, PostList } from 'src/components/Post';
-import Layout from 'src/components/Layout';
-import Seo from 'src/components/Seo';
-import PostCategory from 'src/components/PostCategory';
 
 const LatestPostListQuery = graphql`
   query {
@@ -28,7 +29,7 @@ const LatestPostListQuery = graphql`
   }
 `;
 
-const IndexPage = () => {
+const IndexPage: React.FC = () => {
   const data = useStaticQuery<Query>(LatestPostListQuery);
 
   return (
@@ -37,7 +38,7 @@ const IndexPage = () => {
       <PostCategory />
       <PostList>
         {data.allMarkdownRemark.edges.map(({ node }) => (
-          <PostItem key={node.id} post={node} />
+          <PostItem key={node.id} post={node as Post} />
         ))}
       </PostList>
     </Layout>

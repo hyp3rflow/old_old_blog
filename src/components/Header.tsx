@@ -2,17 +2,6 @@ import { Link } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
 
-const Header = () => (
-  <Wrapper>
-    <NavItem to="/" style={{ fontWeight: '800' }} activeClassName="nav-active">
-      hyp3rflow
-    </NavItem>
-    <NavItem to="/about" activeClassName="nav-active">
-      about
-    </NavItem>
-  </Wrapper>
-);
-
 const Wrapper = styled.nav`
   z-index: 1000;
   position: fixed;
@@ -44,5 +33,16 @@ const NavItem = styled(Link)`
   }
   font-weight: 500;
 `;
+
+const Header: React.FC = () => (
+  <Wrapper>
+    <NavItem to="/" style={{ fontWeight: '800' }} activeClassName="nav-active">
+      hyp3rflow
+    </NavItem>
+    <NavItem to="/about" activeClassName="nav-active">
+      about
+    </NavItem>
+  </Wrapper>
+);
 
 export default Header;

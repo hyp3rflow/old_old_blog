@@ -1,8 +1,19 @@
 import { graphql, useStaticQuery } from 'gatsby';
-import React, { memo } from 'react';
-import PostCategoryItem from './PostCategoryItem';
+import React from 'react';
 import * as R from 'remeda';
 import styled from 'styled-components';
+
+import PostCategoryItem from './PostCategoryItem';
+
+const List = styled.nav`
+  li {
+    list-style-type: none;
+    display: inline-block;
+    padding-right: 12px;
+  }
+  display: block;
+  padding-top: 10px;
+`;
 
 interface ICategoryCount {
   category: string;
@@ -30,7 +41,7 @@ const renderCategoryItem = (categories: ICategoryCount[]) =>
     ))
   );
 
-const PostCategory: React.FC = memo(() => {
+const PostCategory: React.FC = () => {
   const {
     allMarkdownRemark: { totalCount, categories },
   } = useStaticQuery(graphql`
@@ -56,18 +67,6 @@ const PostCategory: React.FC = memo(() => {
       </List>
     </>
   );
-});
-
-const List = styled.nav`
-  li {
-    list-style-type: none;
-    display: inline-block;
-    padding-right: 12px;
-  }
-  display: block;
-  padding-top: 10px;
-`;
-
-PostCategory.displayName = 'PostCategory';
+};
 
 export default PostCategory;

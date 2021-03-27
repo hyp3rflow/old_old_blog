@@ -1,5 +1,6 @@
-import { MarkdownRemarkFrontmatter, MarkdownRemark } from './graphql-types';
 import { WrapPageElementBrowserArgs } from 'gatsby';
+
+import { MarkdownRemark } from './graphql-types';
 
 export type ITemplateProps<T> = WrapPageElementBrowserArgs['props'] & {
   pageContext: {

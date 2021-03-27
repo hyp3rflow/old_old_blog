@@ -1,11 +1,28 @@
-import React, { useState, useEffect } from 'react';
-import Layout from 'src/components/Layout';
-import { ITemplateProps } from '../interface';
-import Utterances from 'src/components/Utterance';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
+import Layout from '@src/components/Layout';
+import Seo from '@src/components/Seo';
+import Utterances from '@src/components/Utterance';
+
 import '../../node_modules/katex/dist/katex.min.css';
-import Seo from 'src/components/Seo';
+import { ITemplateProps } from '../interface';
+
+const PostTitle = styled.h2`
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+
+  img {
+    position: relative;
+    top: 2px;
+    left: 7px;
+    width: 30px;
+    height: 30px;
+    padding: 1px 6px 0px 0px;
+  }
+`;
 
 type IPostTemplateProps = ITemplateProps<{
   html: string;
@@ -19,13 +36,10 @@ const PostTemplate: React.FC<IPostTemplateProps> = React.memo(props => {
   const [isBOJ, setBOJ] = useState(false);
   const [BOJrank, setRank] = useState(0);
 
-  const DisplayRank = props => {
-    console.log(props);
-    const rank = props.level;
-
+  const DisplayRank = ({ rank }: { rank: number }) => {
     if (!isBOJ) return <></>;
 
-    const ImgSrc = `https://static.solved.ac/tier_small/${BOJrank}.svg`;
+    const ImgSrc = `https://static.solved.ac/tier_small/${rank}.svg`;
 
     return (
       <>
@@ -59,7 +73,7 @@ const PostTemplate: React.FC<IPostTemplateProps> = React.memo(props => {
       <Seo title={title} description={description} />
       <Layout>
         <PostTitle>
-          {title} <DisplayRank level={BOJrank} />
+          {title} <DisplayRank rank={BOJrank} />
         </PostTitle>
         <h4>{date}</h4>
         <hr />
@@ -70,27 +84,4 @@ const PostTemplate: React.FC<IPostTemplateProps> = React.memo(props => {
   );
 });
 
-PostTemplate.displayName = 'PostTemplate';
-
 export default PostTemplate;
-
-const ProblemRank = styled.div`
-  color: hsla(0, 0%, 50%, 1);
-  padding-right: 8px;
-`;
-
-const PostTitle = styled.h2`
-  display: flex;
-  align-items: center;
-  margin-bottom: 12px;
-  flex-wrap: wrap;
-
-  img {
-    position: relative;
-    top: 2px;
-    left: 7px;
-    width: 30px;
-    height: 30px;
-    padding: 1px 6px 0px 0px;
-  }
-`;

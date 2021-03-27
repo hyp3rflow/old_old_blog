@@ -32,6 +32,4 @@ const Utterances: React.FC<IUtterancesProps> = React.memo(({ repo }) => {
   return <div ref={containerRef} />;
 });
 
-Utterances.displayName = 'Utterances';
-
 export default Utterances;

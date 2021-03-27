@@ -1,9 +1,9 @@
 import React from 'react';
 
-import Layout from 'src/components/Layout';
-import Seo from 'src/components/Seo';
+import Layout from '@src/components/Layout';
+import Seo from '@src/components/Seo';
 
-const NotFoundPage = () => (
+const NotFoundPage: React.FC = () => (
   <Layout>
     <Seo title="404 :q" />
     <h1>이런!</h1>

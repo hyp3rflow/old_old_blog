@@ -1,21 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Footer = () => {
-  return (
-    <>
-      <Wrapper>
-        <a href="https://github.com/hyp3rflow/">hyp3rflow@github</a>
-        <a href="https://github.com/hyp3rflow/blog">blog@repository</a>
-      </Wrapper>
-      <Powered>
-        powered by GatsbyJS, BOJ Rating by{' '}
-        <a href="https://solved.ac">solved.ac</a>
-      </Powered>
-    </>
-  );
-};
-
 const Wrapper = styled.footer`
   margin-top: 20px;
   height: 50px;
@@ -29,5 +14,20 @@ const Powered = styled.footer`
   margin-bottom: 20px;
   text-align: center;
 `;
+
+const Footer: React.FC = () => {
+  return (
+    <>
+      <Wrapper>
+        <a href="https://github.com/hyp3rflow/">hyp3rflow@github</a>
+        <a href="https://github.com/hyp3rflow/blog">blog@repository</a>
+      </Wrapper>
+      <Powered>
+        powered by GatsbyJS, BOJ Rating by{' '}
+        <a href="https://solved.ac">solved.ac</a>
+      </Powered>
+    </>
+  );
+};
 
 export default Footer;
