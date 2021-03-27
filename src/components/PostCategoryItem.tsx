@@ -1,21 +1,23 @@
-import React, { memo } from 'react'
-import startCase from 'lodash.startcase'
-import { Link } from 'gatsby'
+import React, { memo } from 'react';
+import startCase from 'lodash.startcase';
+import { Link } from 'gatsby';
 
 interface IPostCategoryItemProps {
-    name: string
-    count: number
-    link: string
+  name: string;
+  count: number;
+  link: string;
 }
 
-const PostCategoryItem: React.FC<IPostCategoryItemProps> = memo(({ count, link, name }) => (
+const PostCategoryItem: React.FC<IPostCategoryItemProps> = memo(
+  ({ count, link, name }) => (
     <li>
-        <Link to={link}>
-            {startCase(name)} ({count})
-        </Link>
+      <Link to={link}>
+        {startCase(name)} ({count})
+      </Link>
     </li>
-))
+  )
+);
 
-PostCategoryItem.displayName = 'PostCategoryItem'
+PostCategoryItem.displayName = 'PostCategoryItem';
 
-export default PostCategoryItem
+export default PostCategoryItem;

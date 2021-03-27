@@ -1,5 +1,5 @@
- require('ts-node').register()
+require('ts-node').register();
 
-const { createPages } = require('./src/lib/createPages')
+const { createPages } = require('./src/lib/createPages');
 
-exports.createPages = createPages
+exports.createPages = createPages;

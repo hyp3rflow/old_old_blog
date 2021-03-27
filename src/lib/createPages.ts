@@ -1,78 +1,80 @@
-import { CreatePagesArgs } from 'gatsby'
-import path from 'path'
-import { Query, MarkdownRemarkConnection } from '../graphql-types'
-import { IPostListTemplateContext } from '../interface'
-import startCase from 'lodash.startcase'
+import { CreatePagesArgs } from 'gatsby';
+import path from 'path';
+import { Query, MarkdownRemarkConnection } from '../graphql-types';
+import { IPostListTemplateContext } from '../interface';
+import startCase from 'lodash.startcase';
 
 export const createPages = async ({ actions, graphql }: CreatePagesArgs) => {
-    const { createPage } = actions
+  const { createPage } = actions;
 
-    type Query2 = {
-        allMarkdownRemark: MarkdownRemarkConnection
-        allPostByCategory: MarkdownRemarkConnection
-    }
+  type Query2 = {
+    allMarkdownRemark: MarkdownRemarkConnection;
+    allPostByCategory: MarkdownRemarkConnection;
+  };
 
-    const { data, errors } = await graphql<Query2>(`
-        {
-            allPostByCategory: allMarkdownRemark(sort: { order: DESC, fields: frontmatter___last_modified_at }) {
-                group(field: frontmatter___categories) {
-                    fieldValue
-                    nodes {
-                        id
-                        frontmatter {
-                            title
-                            categories
-                            path
-                            last_modified_at(formatString: "YYYY-MM-DD")
-                        }
-                        excerpt(truncate: true, pruneLength: 200)
-                    }
-                }
+  const { data, errors } = await graphql<Query2>(`
+    {
+      allPostByCategory: allMarkdownRemark(
+        sort: { order: DESC, fields: frontmatter___last_modified_at }
+      ) {
+        group(field: frontmatter___categories) {
+          fieldValue
+          nodes {
+            id
+            frontmatter {
+              title
+              categories
+              path
+              last_modified_at(formatString: "YYYY-MM-DD")
             }
-
-            allMarkdownRemark {
-                edges {
-                    node {
-                        html
-                        frontmatter {
-                            title
-                            path
-                            categories
-                        }
-                    }
-                }
-            }
+            excerpt(truncate: true, pruneLength: 200)
+          }
         }
-    `)
+      }
 
-    if (errors) {
-        throw errors
+      allMarkdownRemark {
+        edges {
+          node {
+            html
+            frontmatter {
+              title
+              path
+              categories
+            }
+          }
+        }
+      }
     }
+  `);
 
-    data.allMarkdownRemark.edges.forEach(({ node }) => {
-        createPage({
-            path: node.frontmatter.path,
-            context: {
-                html: node.html,
-                title: node.frontmatter.title,
-            },
-            component: path.resolve(__dirname, '../templates/PostTemplate.tsx'),
-        })
-    })
+  if (errors) {
+    throw errors;
+  }
 
-    data.allPostByCategory.group.forEach(({ fieldValue, nodes }) => {
-        const pagePath = `/category/${fieldValue}`
-        const title = startCase(fieldValue)
+  data.allMarkdownRemark.edges.forEach(({ node }) => {
+    createPage({
+      path: node.frontmatter.path,
+      context: {
+        html: node.html,
+        title: node.frontmatter.title,
+      },
+      component: path.resolve(__dirname, '../templates/PostTemplate.tsx'),
+    });
+  });
 
-        createPage<IPostListTemplateContext>({
-            path: pagePath,
-            context: {
-                title,
-                pagePath,
-                categories: fieldValue,
-                nodes,
-            },
-            component: path.resolve(__dirname, '../templates/PostListTemplate.tsx'),
-        })
-    })
-}
+  data.allPostByCategory.group.forEach(({ fieldValue, nodes }) => {
+    const pagePath = `/category/${fieldValue}`;
+    const title = startCase(fieldValue);
+
+    createPage<IPostListTemplateContext>({
+      path: pagePath,
+      context: {
+        title,
+        pagePath,
+        categories: fieldValue,
+        nodes,
+      },
+      component: path.resolve(__dirname, '../templates/PostListTemplate.tsx'),
+    });
+  });
+};
