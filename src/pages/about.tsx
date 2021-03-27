@@ -99,7 +99,7 @@ const Resume: React.FC = () => {
         </IntroNested>
       </Introduction>
       <Linespace />
-      <ResumeTitle primary>최용욱</ResumeTitle>
+      <ResumeTitle primary>최용욱, Yongwook Choi</ResumeTitle>
       <ResumeContext>
         진주고등학교 졸업
         <br />
