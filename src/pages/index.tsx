@@ -3,8 +3,8 @@ import { graphql, useStaticQuery, Link } from 'gatsby';
 import { Query } from '../graphql-types';
 import styled from 'styled-components';
 import PostItem, { Post, PostList } from '../components/Post';
-import Layout from '../components/layout';
-import SEO from '../components/seo';
+import Layout from '../components/Layout';
+import Seo from '../components/Seo';
 import PostCategory from '../components/PostCategory';
 
 const LatestPostListQuery = graphql`
@@ -33,7 +33,7 @@ const IndexPage = () => {
 
   return (
     <Layout>
-      <SEO title="Home" />
+      <Seo title="Home" />
       <PostCategory />
       <PostList>
         {data.allMarkdownRemark.edges.map(({ node }) => (

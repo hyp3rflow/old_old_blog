@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 import { ITemplateProps } from '../interface';
-import Utterances from '../components/utterance';
+import Utterances from '../components/Utterance';
 import styled from 'styled-components';
 
 import '../../node_modules/katex/dist/katex.min.css';
-import SEO from '../components/seo';
+import Seo from '../components/Seo';
 
 type IPostTemplateProps = ITemplateProps<{
   html: string;
@@ -56,7 +56,7 @@ const PostTemplate: React.FC<IPostTemplateProps> = React.memo(props => {
 
   return (
     <>
-      <SEO title={title} description={description} />
+      <Seo title={title} description={description} />
       <Layout>
         <PostTitle>
           {title} <DisplayRank level={BOJrank} />

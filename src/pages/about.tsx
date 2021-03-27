@@ -1,7 +1,7 @@
 import { graphql, useStaticQuery, Link } from 'gatsby';
 import React from 'react';
-import SEO from '../components/seo';
-import Layout from '../components/layout';
+import Seo from '../components/Seo';
+import Layout from '../components/Layout';
 import TextLoop from 'react-text-loop';
 import styled from 'styled-components';
 import oc from 'open-color';
@@ -15,7 +15,7 @@ const texts = [
 const Resume: React.FC = () => {
   return (
     <Layout>
-      <SEO title="About" url="/about" />
+      <Seo title="About" url="/about" />
       <Introduction>
         <IntroNested>
           안녕하세요?
