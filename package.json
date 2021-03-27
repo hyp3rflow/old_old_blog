@@ -7,7 +7,7 @@
   "dependencies": {
     "@deckdeckgo/highlight-code": "^1.1.1",
     "firebase-tools": "^8.4.3",
-    "gatsby": "^2.23.10",
+    "gatsby": "^3.1.2",
     "gatsby-image": "^2.4.13",
     "gatsby-plugin-generate-typings": "^0.9.9",
     "gatsby-plugin-google-analytics": "^2.3.10",
