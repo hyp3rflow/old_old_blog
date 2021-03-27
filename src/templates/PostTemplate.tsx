@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import Layout from '@src/components/Layout';
+import Layout from 'src/components/Layout';
 import { ITemplateProps } from '../interface';
-import Utterances from '@src/components/Utterance';
+import Utterances from 'src/components/Utterance';
 import styled from 'styled-components';
 
 import '../../node_modules/katex/dist/katex.min.css';
-import Seo from '@src/components/Seo';
+import Seo from 'src/components/Seo';
 
 type IPostTemplateProps = ITemplateProps<{
   html: string;

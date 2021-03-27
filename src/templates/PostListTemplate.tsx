@@ -1,9 +1,9 @@
 import React from 'react';
 import { IPostListTemplateContext, ITemplateProps } from '../interface';
-import PostCategory from '@src/components/PostCategory';
-import PostItem, { Post, PostList } from '@src/components/Post';
-import Seo from '@src/components/Seo';
-import Layout from '@src/components/Layout';
+import PostCategory from 'src/components/PostCategory';
+import PostItem, { Post, PostList } from 'src/components/Post';
+import Seo from 'src/components/Seo';
+import Layout from 'src/components/Layout';
 
 type IPostListTemplateProps = ITemplateProps<IPostListTemplateContext>;
 

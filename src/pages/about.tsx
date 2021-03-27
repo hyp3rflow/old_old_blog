@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import Seo from '@src/components/Seo';
-import Layout from '@src/components/Layout';
+import Seo from 'src/components/Seo';
+import Layout from 'src/components/Layout';
 import TextLoop from 'react-text-loop';
 import styled from 'styled-components';
 
