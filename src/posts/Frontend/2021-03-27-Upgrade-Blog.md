@@ -34,7 +34,7 @@ v3로 넘어오면서 생긴 breaking changes는 다음과 같았다.
   - 다행히도 ```yarn upgrade-interactive --latest``` 명령어를 이용해 interactive한 방법으로 latest가 아닌 패키지들을 선택하여 업그레이드 할 수 있었다.
 - Node.js 버전이 12.13.0 이상은 되어야 한다.
 - gatsby에서 사용하는 webpack 버전이 v4에서 v5로 업그레이드 되었다.
-- gatsby에서 사용하는 webpack 버전이 v6에서 v7로 업그레이드 되었다.
+- gatsby에서 사용하는 eslint 버전이 v6에서 v7로 업그레이드 되었다.
 
 그렇게 breaking changes를 적용해도 
 
