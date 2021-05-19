@@ -4,7 +4,7 @@ categories:
     - Frontend
 last_modified_at: 2021-05-19T22:25:00
 toc: true
-path: '/Frontend/Upgrade-Blog'
+path: '/Frontend/KWEB-Bootcamp-1'
 
 ---
 
